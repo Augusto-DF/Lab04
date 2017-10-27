@@ -23,7 +23,7 @@ all: questao01
 debug: CFLAGS += -g -O0
 
 #Criação do executavel: questao01
-questao01: $(OBJ_DIR)/node.o $(OBJ_DIR)/main1.o
+questao01: $(OBJ_DIR)/main1.o #$(OBJ_DIR)/node.o 
 	@echo	"======================"
 	@echo	"Carregando o alvo $@"
 	@echo	"======================"
@@ -33,11 +33,11 @@ questao01: $(OBJ_DIR)/node.o $(OBJ_DIR)/main1.o
 
 #Criação dos arquivos .o:
 #node.o
-$(OBJ_DIR)/node.o: $(SRC_DIR)/node.cpp $(INC_DIR)/node.h
-	$(CC) -c $(CFLAGS) -o $@ $<
+#$(OBJ_DIR)/node.o: $(INC_DIR)/node.h
+#	$(CC) -c $(CFLAGS) -o $@ $<
 
 #main.o
-$(OBJ_DIR)/main1.o: $(SRC_DIR)/main.cpp
+$(OBJ_DIR)/main1.o: $(SRC_DIR)/main.cpp $(INC_DIR)/node.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 doxy:
